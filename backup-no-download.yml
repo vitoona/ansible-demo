@@ -14,7 +14,7 @@
           server: "{{ ansible_host }}"
           server_port: "443"
           validate_certs: false
-          ucs: "{{ inventory_hostname + '-' + date.stdout +  '-backup.ucs' }}"
+          ucs: "{{ inventory_hostname +  '-backup.ucs' }}"
           
    # - name: get current time on localhost
    #   command: date "+%H%M%S-%m%d%y"
