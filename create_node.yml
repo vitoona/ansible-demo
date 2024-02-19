@@ -28,6 +28,6 @@
         provider: "{{provider}}"
         host: "1.1.1.1"
         name: "1.1.1.1"
-      loop: "{{ groups['web'] }}"
+      #loop: "{{ groups['web'] }}"
 
   
