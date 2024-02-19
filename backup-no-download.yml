@@ -28,8 +28,8 @@
     - name: Download a new UCS
       bigip_ucs_fetch:
         src: "{{ ucs }}"
-        dest: /tmp/cs_backup.ucs
-        #only_create_file: true
+        #dest: /tmp/cs_backup.ucs
+        only_create_file: true
         provider: "{{ provider }}"
       delegate_to: localhost
 
