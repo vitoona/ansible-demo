@@ -2,8 +2,11 @@
 - name: BIG-IP SETUP
   hosts: lb
   connection: local
-  gather_facts: true
-
+  gather_facts: false
+  
+  collections:
+    - f5networks.f5_modules
+ 
   tasks:
     - name: Setup provider
       ansible.builtin.set_fact:
@@ -18,12 +21,12 @@
       delegate_to: localhost
       run_once: True
 
-   # - name: set filename var
-    #    set_fact: 
-     #     ucs: "{{ inventory_hostname + '-' + date.stdout +  '-backup.ucs' }}"
+   - name: set filename var
+      set_fact: 
+      ucs: "{{ inventory_hostname + '-' + date.stdout +  '-backup.ucs' }}"
 
     - name: Download a new UCS
-      f5networks.f5_modules.bigip_ucs_fetch:
+      bigip_ucs_fetch:
         src: "{{ ucs }}"
         only_create_file: true
         provider: "{{ provider }}"
