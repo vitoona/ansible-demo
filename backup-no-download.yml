@@ -8,6 +8,11 @@
     - f5networks.f5_modules
  
   tasks:
+  - name: get current time on localhost
+      command: date "+%H%M%S-%m%d%y"
+      register: date
+      delegate_to: localhost
+      run_once: True
     - name: Setup provider
       set_fact:
         provider:
@@ -16,11 +21,11 @@
           validate_certs: false
           ucs: "{{ inventory_hostname + '-' + date.stdout +  '-backup.ucs' }}"
           
-    - name: get current time on localhost
-      command: date "+%H%M%S-%m%d%y"
-      register: date
-      delegate_to: localhost
-      run_once: True
+   # - name: get current time on localhost
+   #   command: date "+%H%M%S-%m%d%y"
+    #  register: date
+    #  delegate_to: localhost
+    #  run_once: True
 #- name: set filename var
    #  set_fact:
 #ucs: "{{ inventory_hostname + '-' + date.stdout +  '-backup.ucs' }}"
