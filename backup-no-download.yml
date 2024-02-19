@@ -9,7 +9,7 @@
  
   tasks:
     - name: Setup provider
-      ansible.builtin.set_fact:
+      set_fact:
         provider:
           server: "{{ ansible_host }}"
           server_port: "443"
