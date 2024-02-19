@@ -17,7 +17,7 @@
     - name: Download a new UCS
       bigip_ucs_fetch:
         src: "{{ ucs }}"
-        dest: "{{ '/tmp/ucs/' + ucs }}"
+        dest: "{{ '/tmp/' + ucs }}"
         #only_create_file: true
         provider: "{{ provider }}"
       delegate_to: localhost
