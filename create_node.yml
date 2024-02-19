@@ -26,8 +26,8 @@
     - name: CREATE NODES
       bigip_node:
         provider: "{{provider}}"
-        host: "1.1.1.1"
-        name: "1.1.1.1"
+        host: "{{node_ip}}"
+        name: "{{node_ip}}"
       #loop: "{{ groups['web'] }}"
 
   
