@@ -35,8 +35,8 @@
       bigip_pool_member:
         provider: "{{provider}}"
         state: "present"
-        name: "1.1.1.1"
-        host: "1.1.1.1"
+        name: "{{server}}"
+        host: "{{server}}"
         port: "80"
         pool: "{{http_pool}}"
       #loop: "{{ groups['web'] }}"
