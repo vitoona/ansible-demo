@@ -18,7 +18,7 @@
       bigip_ucs_fetch:
         src: "{{ ucs }}"
         dest: "{{ '/tmp/ucs/' + ucs }}"
-        only_create_file: true
+        #only_create_file: true
         provider: "{{ provider }}"
       delegate_to: localhost
 
