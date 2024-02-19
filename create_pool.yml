@@ -12,7 +12,7 @@
       set_fact:
        provider:
         server: "{{private_ip}}"
-        server_port: "8443"
+        server_port: "443"
         validate_certs: "False"
   
     - name: Setting up provider values
@@ -26,17 +26,17 @@
     - name: CREATE POOL
       bigip_pool:
         provider: "{{provider}}"
-        name: "http_pool"
+        name: "{{http_pool}}"
         lb_method: "round-robin"
         monitors: "/Common/http"
-        monitor_type: "and_list"
+        #monitor_type: "and_list"
 
     - name: ADD POOL MEMBERS
       bigip_pool_member:
         provider: "{{provider}}"
         state: "present"
-        name: "{{hostvars[item].inventory_hostname}}"
-        host: "{{hostvars[item].private_ip}}"
+        name: "1.1.1.1"
+        host: "1.1.1.1"
         port: "80"
-        pool: "http_pool"
-      loop: "{{ groups['web'] }}"
+        pool: "{{http_pool}}"
+      #loop: "{{ groups['web'] }}"
